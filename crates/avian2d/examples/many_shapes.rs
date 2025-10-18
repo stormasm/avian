@@ -123,14 +123,14 @@ fn movement(
     let delta_time = time.delta_secs_f64().adjust_precision();
 
     for mut linear_velocity in &mut marbles {
-        if keyboard_input.any_pressed([KeyCode::KeyW, KeyCode::ArrowUp]) {
+        if keyboard_input.any_pressed([KeyCode::KeyJ, KeyCode::ArrowUp]) {
             // Use a higher acceleration for upwards movement to overcome gravity
             linear_velocity.y += 2500.0 * delta_time;
         }
-        if keyboard_input.any_pressed([KeyCode::KeyS, KeyCode::ArrowDown]) {
-            linear_velocity.y -= 500.0 * delta_time;
+        if keyboard_input.any_pressed([KeyCode::KeyK, KeyCode::ArrowDown]) {
+            linear_velocity.y += 1000.0 * delta_time;
         }
-        if keyboard_input.any_pressed([KeyCode::KeyA, KeyCode::ArrowLeft]) {
+        if keyboard_input.any_pressed([KeyCode::KeyF, KeyCode::ArrowLeft]) {
             linear_velocity.x -= 500.0 * delta_time;
         }
         if keyboard_input.any_pressed([KeyCode::KeyD, KeyCode::ArrowRight]) {
