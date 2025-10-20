@@ -8,10 +8,10 @@ impl Plugin for CharacterControllerPlugin {
         app.add_message::<MovementAction>().add_systems(
             Update,
             (
-                keyboard_input,
+                keyboard_input_mia,
                 gamepad_input,
                 update_grounded,
-                movement,
+                movement_mia,
                 apply_movement_damping,
             )
                 .chain(),
@@ -126,7 +126,7 @@ impl CharacterControllerBundle {
 }
 
 /// Sends [`MovementAction`] events based on keyboard input.
-fn keyboard_input(
+fn keyboard_input_mia(
     mut movement_writer: MessageWriter<MovementAction>,
     keyboard_input: Res<ButtonInput<KeyCode>>,
 ) {
@@ -186,7 +186,7 @@ fn update_grounded(
 }
 
 /// Responds to [`MovementAction`] events and moves character controllers accordingly.
-fn movement(
+fn movement_mia(
     time: Res<Time>,
     mut movement_reader: MessageReader<MovementAction>,
     mut controllers: Query<(
